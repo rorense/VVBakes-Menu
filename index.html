@@ -5,7 +5,7 @@
 		<meta
 			name="viewport"
 			content="width=device-width, initial-scale=1.0" />
-		<title>VVBakes Menu</title>
+		<title>vvbakes — menu</title>
 		<link
 			rel="preconnect"
 			href="https://fonts.googleapis.com" />
@@ -14,51 +14,274 @@
 			href="https://fonts.gstatic.com"
 			crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
 			rel="stylesheet" />
 		<style>
+			:root {
+				--brown: #3b2418;
+				--pink: #ffe4ec;
+				--line: rgba(59, 36, 24, 0.14);
+				--font: "Roboto", sans-serif;
+			}
+
+			*,
+			*::before,
+			*::after {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
 			body {
-				font-family: Roboto, sans-serif;
+				height: 100%;
+			}
+
+			body {
+				font-family: var(--font);
+				color: var(--brown);
+				background: var(--pink);
+				line-height: 1.35;
+				overflow: hidden;
+			}
+
+			.page {
+				max-width: 28rem;
+				height: 100svh;
+				margin: 0 auto;
+				padding: 0.85rem 1.15rem;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				gap: 0.5rem;
+			}
+
+			.logo {
+				display: block;
+				width: min(11rem, 42vw);
+				height: auto;
+				margin: 0 auto 0.35rem;
+			}
+
+			.brand {
+				font-size: clamp(1.75rem, 6vw, 2.25rem);
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				text-align: center;
+				text-transform: lowercase;
+				color: var(--brown);
+			}
+
+			.tagline {
+				font-size: 0.8rem;
+				font-weight: 300;
+				text-align: center;
+				color: var(--brown);
+				margin-top: 0.15rem;
+			}
+
+			.section-title {
+				font-size: 0.65rem;
+				font-weight: 500;
+				letter-spacing: 0.16em;
+				text-transform: uppercase;
+				color: var(--brown);
+				margin-bottom: 0.35rem;
+			}
+
+			.menu-list {
+				list-style: none;
+				border-top: 1px solid var(--line);
+			}
+
+			.menu-item {
+				display: grid;
+				grid-template-columns: 1fr auto;
+				gap: 0.1rem 0.75rem;
+				align-items: baseline;
+				padding: 0.4rem 0;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.menu-item h3 {
+				font-size: 0.95rem;
+				font-weight: 500;
+				color: var(--brown);
+			}
+
+			.menu-item .prices {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				gap: 0.1rem;
+			}
+
+			.menu-item .price {
+				font-size: 0.85rem;
+				font-weight: 400;
+				color: var(--brown);
+				text-align: right;
+				white-space: nowrap;
+			}
+
+			.pay {
+				padding-top: 0.35rem;
+			}
+
+			.pay-grid {
+				display: grid;
+				gap: 0.35rem;
+			}
+
+			.pay-row {
+				display: flex;
+				justify-content: space-between;
+				gap: 0.75rem;
+				align-items: baseline;
+				font-size: 0.85rem;
+				color: var(--brown);
+			}
+
+			.pay-row dt {
+				font-weight: 500;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				font-size: 0.65rem;
+			}
+
+			.pay-row dd {
+				font-weight: 400;
+				text-align: right;
+			}
+
+			.footer {
+				text-align: center;
+				padding-top: 0.35rem;
+				border-top: 1px solid var(--line);
+			}
+
+			.thanks {
+				font-size: 0.8rem;
+				font-weight: 400;
+				font-style: italic;
+				color: var(--brown);
+				margin-bottom: 0.25rem;
+			}
+
+			.ig {
+				font-size: 0.75rem;
+				font-weight: 300;
+				color: var(--brown);
+			}
+
+			.ig a {
+				color: var(--brown);
+				font-weight: 500;
+				text-decoration: underline;
+				text-underline-offset: 2px;
+			}
+
+			@media (max-height: 560px) {
+				.page {
+					padding: 0.5rem 1rem;
+					gap: 0.25rem;
+				}
+
+				.logo {
+					width: min(8rem, 34vw);
+				}
+
+				.brand {
+					font-size: 1.5rem;
+				}
+
+				.menu-item {
+					padding: 0.28rem 0;
+				}
+
+				.menu-item h3 {
+					font-size: 0.85rem;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<h2>Welcome to vv bakes!!</h2>
+		<div class="page">
+			<header>
+				<img
+					class="logo"
+					src="vv%20bakes%20-%20logo%20final.png"
+					alt=""
+					aria-hidden="true" />
+				<h1 class="brand">vvbakes</h1>
+				<p class="tagline">inspired desserts</p>
+			</header>
 
-		<p><strong>Prices:</strong></p>
+			<section aria-labelledby="menu-heading">
+				<h2
+					id="menu-heading"
+					class="section-title">
+					menu
+				</h2>
+				<ul class="menu-list">
+					<li class="menu-item">
+						<h3>Cupcakes</h3>
+						<div class="prices">
+							<span class="price">$3 each</span>
+							<span class="price">4 for $12</span>
+						</div>
+					</li>
+					<li class="menu-item">
+						<h3>Cookies</h3>
+						<span class="price">2 for $5</span>
+					</li>
+					<li class="menu-item">
+						<h3>Brochi</h3>
+						<span class="price">$5 / slice</span>
+					</li>
+					<li class="menu-item">
+						<h3>Wingko</h3>
+						<span class="price">$5 / slice</span>
+					</li>
+					<li class="menu-item">
+						<h3>Pandan Chiffon Cake</h3>
+						<span class="price">$3 / slice</span>
+					</li>
+				</ul>
+			</section>
 
-		<ul>
-			<li>Cupcakes - 4 for $12 or 1 for $3</li>
-		</ul>
+			<section
+				class="pay"
+				aria-labelledby="pay-heading">
+				<h2
+					id="pay-heading"
+					class="section-title">
+					bank details
+				</h2>
+				<dl class="pay-grid">
+					<div class="pay-row">
+						<dt>Name</dt>
+						<dd>Liviana Ngadi</dd>
+					</div>
+					<div class="pay-row">
+						<dt>Account</dt>
+						<dd>12-3035-0753102-52</dd>
+					</div>
+				</dl>
+			</section>
 
-		<ul>
-			<li>Cookies - 2 for $5</li>
-		</ul>
-		<ul>
-			<li>Brochi - $5/slice</li>
-		</ul>
-		<ul>
-			<li>Wingko - $5/slice</li>
-		</ul>
-		<ul>
-			<li>Pandan Chiffon Cake - $3/slice</li>
-		</ul>
-		<br />
-
-		<p><strong>Bank details:</strong></p>
-
-		<p>Name: LIVIANA NGADI</p>
-		<p>ACC: 12-3035-0753102-52</p>
-
-		<p>Thank you so much for supporting vv bakes!</p>
-
-		<p>
-			Follow me on Instagram:
-			<a
-				target="_blank"
-				href="https://www.instagram.com/vv.bakes/"
-				>@vv.bakes</a
-			>
-		</p>
+			<footer class="footer">
+				<p class="thanks">thank you for supporting vvbakes</p>
+				<p class="ig">
+					instagram:
+					<a
+						href="https://www.instagram.com/vv.bakes/"
+						target="_blank"
+						rel="noopener noreferrer"
+						>@vv.bakes</a
+					>
+				</p>
+			</footer>
+		</div>
 	</body>
 </html>
